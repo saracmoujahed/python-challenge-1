@@ -200,32 +200,18 @@ print("Item name                 | Price  | Quantity")
 print("--------------------------|--------|----------")
 
 # 6. Loop through the items in the customer's order
-i = 1
-order_items = {}
-for key, value in order[0].items():
-    # Check if the menu item is a dictionary to handle differently
-    if type(value) is dict:
-        for key2, value2 in value.items():
-            num_item_spaces = 24 - len(key + key2) - 3
-            item_spaces = " " * num_item_spaces
-            print(f"{i}      | {key} - {key2}{item_spaces} | ${value2}")
-            order_items[i] = {
-                "Item name": key + " - " + key2,
-                "Price": value2
-            }
-            i += 1
-    else:
-        num_item_spaces = 24 - len(key)
-        item_spaces = " " * num_item_spaces
-        print(f"{i}      | {key}{item_spaces} | ${value}")
-        order_items[i] = {
-            "Item name": key,
-            "Price": value
-        }
-        i += 1
+i = 0
+for item in order:
     # 7. Store the dictionary items as variables
-
-
+    item_name = order[i]['Item name']
+    price = order[i]['Price']
+    quantity = order[i]['Quantity']
+    num_item_spaces = 25 - len(item_name)
+    item_spaces = " " * num_item_spaces
+    num_price_spaces = 5 - len(str(price))
+    price_spaces = " " * num_price_spaces
+    print(f"{item_name}{item_spaces } | ${price}{price_spaces} | {quantity}")
+    i+= 1
     # 8. Calculate the number of spaces for formatted printing
 
 
