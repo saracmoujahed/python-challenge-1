@@ -57,12 +57,12 @@ menu = {
 order = [
     {
     "Item name": "string",
-    "Price": float,
+    "Price": 0.00,
     "Quantity": int
   },
   {
     "Item name": "string",
-    "Price": float,
+    "Price": 0.00,
     "Quantity": int
   }
 ]
@@ -206,21 +206,18 @@ for item in order:
     item_name = order[i]['Item name']
     price = order[i]['Price']
     quantity = order[i]['Quantity']
-    num_item_spaces = 25 - len(item_name)
-    item_spaces = " " * num_item_spaces
-    num_price_spaces = 5 - len(str(price))
-    price_spaces = " " * num_price_spaces
-    print(f"{item_name}{item_spaces } | ${price}{price_spaces} | {quantity}")
-    i+= 1
     # 8. Calculate the number of spaces for formatted printing
-
-
+    num_item_spaces = 25 - len(item_name)
+    num_price_spaces = 5 - len(str(price))
     # 9. Create space strings
-
-
+    item_spaces = " " * num_item_spaces
+    price_spaces = " " * num_price_spaces
     # 10. Print the item name, price, and quantity
-
-
+    print(f"{item_name}{item_spaces } | ${price}{price_spaces} | {quantity}")
+    i += 1
+    
 # 11. Calculate the cost of the order using list comprehension
 # Multiply the price by quantity for each item in the order list, then sum()
 # and print the prices.
+total = sum(float(item['Price']) for item in order)
+print(f"Total price: {total}")
