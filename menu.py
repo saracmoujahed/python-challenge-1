@@ -219,4 +219,5 @@ for item in order:
 # 11. Calculate the cost of the order using list comprehension
 # Multiply the price by quantity for each item in the order list, then sum()
 # and print the prices.
-total = sum(item['Price'] * quantity for item in order)
+total = sum(float(item['Price']) * item['Quantity'] for item in order)
+print(f"Total: {total}")
