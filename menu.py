@@ -58,12 +58,12 @@ order = [
     {
     "Item name": "string",
     "Price": 0.00,
-    "Quantity": int
+    "Quantity": 0
   },
   {
     "Item name": "string",
     "Price": 0.00,
-    "Quantity": int
+    "Quantity": 0
   }
 ]
 
@@ -219,5 +219,4 @@ for item in order:
 # 11. Calculate the cost of the order using list comprehension
 # Multiply the price by quantity for each item in the order list, then sum()
 # and print the prices.
-total = sum(float(item['Price']) for item in order)
-print(f"Total price: {total}")
+total = sum(item['Price'] * quantity for item in order)
